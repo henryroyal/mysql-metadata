@@ -1,0 +1,19 @@
+# mysql-metadata - ORM for mysql's information_schema
+
+sqlalchemy model for mysql's information schema
+this should be used in a read-only manner
+
+The model is forced to manually specify a primary key
+for each table, as this is a requirement of sqlalchemy.
+MySQL's information_schema lacks foreign keys and primary keys,
+so the tables don't always suit this way of doing things.
+
+to run the test install in a virtualenv, activate, and execute runtest
+```
+# from root of the repository
+VIRTUALENV=~/PythonVirtualenvs/mysql_metadata
+
+$ virtualenv $VIRTUALENV
+$ ${VIRTUALENV}/bin/pip install .
+$ ${VIRTUALENV}/bin/runtest
+```
