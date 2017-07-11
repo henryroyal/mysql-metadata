@@ -3,7 +3,7 @@ import json
 from datetime import datetime
 import information_schema.model as model
 
-TABLE_TO_INSPECT = 'mysql'
+DATABASE_TO_INSPECT = 'mysql'
 session = model.Session()
 
 
@@ -27,7 +27,7 @@ def serialize_table(table):
 
 def main():
 
-    all_tables = session.query(model.Table).filter(model.Table.TABLE_SCHEMA == TABLE_TO_INSPECT).all()
+    all_tables = session.query(model.Table).filter(model.Table.TABLE_SCHEMA == DATABASE_TO_INSPECT).all()
 
     for table in all_tables:
         serialized_table_table = serialize_table(table)
